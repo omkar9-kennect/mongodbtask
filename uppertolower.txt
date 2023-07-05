@@ -1,0 +1,50 @@
+db.alphabet.insertMany([{name:"OMKAR"},{name:"SHIVAM"},{name:"PRABHAT"},{name:"SHREESH"},{name:"SOLOMON"},{name:"DEEP"},{name:"MUKUND"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64a5b659c825dcf1a1ac2df5"),
+    '1': ObjectId("64a5b659c825dcf1a1ac2df6"),
+    '2': ObjectId("64a5b659c825dcf1a1ac2df7"),
+    '3': ObjectId("64a5b659c825dcf1a1ac2df8"),
+    '4': ObjectId("64a5b659c825dcf1a1ac2df9"),
+    '5': ObjectId("64a5b659c825dcf1a1ac2dfa"),
+    '6': ObjectId("64a5b659c825dcf1a1ac2dfb")
+  }
+}
+***************************************************************************
+db.alphabet.find()
+[
+  { _id: ObjectId("64a5b51fc825dcf1a1ac2df4"), name: 'OMKAR' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df5"), name: 'OMKAR' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df6"), name: 'SHIVAM' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df7"), name: 'PRABHAT' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df8"), name: 'SHREESH' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df9"), name: 'SOLOMON' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfa"), name: 'DEEP' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfb"), name: 'MUKUND' }
+*****************************************************************************
+db.alphabet.deleteOne({ _id: ObjectId("64a5b51fc825dcf1a1ac2df4")}
+... )
+{ acknowledged: true, deletedCount: 1 }
+stringmani> db.alphabet.find()
+[
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df5"), name: 'OMKAR' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df6"), name: 'SHIVAM' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df7"), name: 'PRABHAT' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df8"), name: 'SHREESH' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df9"), name: 'SOLOMON' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfa"), name: 'DEEP' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfb"), name: 'MUKUND' }
+]
+]
+*****************************************************************************
+ db.alphabet.aggregate( [ { $project: { name: { $toLower: "$name" }  }}])
+[
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df5"), name: 'omkar' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df6"), name: 'shivam' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df7"), name: 'prabhat' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df8"), name: 'shreesh' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2df9"), name: 'solomon' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfa"), name: 'deep' },
+  { _id: ObjectId("64a5b659c825dcf1a1ac2dfb"), name: 'mukund' }
+]
